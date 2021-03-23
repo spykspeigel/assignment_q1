@@ -1,6 +1,24 @@
 ---
-{
-MainRobot: "JVRC1",
-Enabled: ["MyFirstController"],
 
-}
+MainRobot: "JVRC1"
+Enabled: ["MyFirstController"]
+
+
+tasks:
+  CoM:
+    type: com
+    above:
+      - LeftFoot
+      - RightFoot
+    weight: 2000
+    stiffness: 5
+  KeepChest:
+    type: orientation
+    body: WAIST_R_S
+    weight: 100
+    stiffness: 1
+  MoveLeftHand:
+    type: body6d
+    body: l_wrist
+    orientation: [0.71, 0, 0.71, 0]
+    position: [0.4, 0.4, 1.0]

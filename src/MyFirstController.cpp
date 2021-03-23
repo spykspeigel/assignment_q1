@@ -13,11 +13,9 @@ MyFirstController::MyFirstController(mc_rbdyn::RobotModulePtr rm, double dt, con
   solver().addConstraintSet(*compoundJointConstraint);
   solver().addTask(postureTask);
 
-  const mc_rtc::Configuration & task_config=mc_rtc::Configuration("/home/robo/Documents/robotics/my_first_controller/etc/task.json");
-
-    auto tasks_t = task_config("tasks");
-    auto tasks= mc_tasks::MetaTaskLoader::load<mc_tasks::EndEffectorTask>(solver(),"/home/robo/Documents/robotics/my_first_controller/etc/task.yaml");
-    solver().addTask(tasks);
+    auto tasks_t = config("tasks");
+//    auto tasks= mc_tasks::MetaTaskLoader::load<mc_tasks::EndEffectorTask>(solver(),"/home/robo/Documents/robotics/my_first_controller/etc/task.yaml");
+//    solver().addTask(tasks);
    for (auto& t: tasks_t.keys()){
     
       tasks_.emplace_back(mc_tasks::MetaTaskLoader::load(solver(),tasks_t(t)));
