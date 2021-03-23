@@ -1,0 +1,6 @@
+---
+{
+MainRobot: "JVRC1",
+Enabled: ["MyFirstController"],
+
+}
